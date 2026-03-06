@@ -16,7 +16,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "item")
-public class Product {
+public class Product{
 
     @Id
     @Column(name = "item_id")
