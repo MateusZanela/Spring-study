@@ -32,7 +32,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product findProduct(@PathVariable("id") String id){
+    public Product getProduct(@PathVariable("id") String id){
         return productRepository.findById(id).orElse(null);
     }
 
@@ -46,6 +46,11 @@ public class ProductController {
                               @RequestBody Product product){
         product.setId(id);
         productRepository.save(product);
+    }
+
+    @GetMapping
+    public List<Product> searchProduct(@RequestParam("name") String name){
+        return productRepository.findByName(name);
     }
 
 }
